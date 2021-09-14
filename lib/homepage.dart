@@ -49,75 +49,10 @@ class _HomePageState extends State<HomePage> {
                   print(snapshot.data);
                   return Column(
                     children: [
-                      // ListTile(
-                      //   title: Container(
-                      //     child: Form(
-                      //       key: _formvalid,
-                      //       child: TextFormField(
-                      //         controller: searchWeather,
-                      //         textInputAction: TextInputAction.search,
-                      //         onChanged: (value) {
-                      //           cData = value;
-                      //         },
-                      //         validator: (value) {
-                      //           if (value!.isEmpty) {
-                      //             return 'Plese enter the city or country name.';
-                      //           } else {
-                      //             return null;
-                      //           }
-                      //         },
-                      //         decoration: InputDecoration(
-                      //           hintText: 'Enter City name'.toUpperCase(),
-                      //           hintStyle: TextStyle(
-                      //             fontSize: 15,
-                      //           ),
-                      //         ),
-                      //       ),
-                      //     ),
-                      //   ),
-                      //   trailing: IconButton(
-                      //     onPressed: () {
-                      //       FocusScope.of(context).unfocus();
-                      //       searchWeather.clear();
-                      //       setState(() {});
-                      //     },
-                      //     icon: Icon(Icons.close),
-                      //   ),
-                      //   leading: IconButton(
-                      //     onPressed: () {
-                      //       if (_formvalid.currentState!.validate()) {
-                      //         _formvalid.currentState!.save();
-                      //         FocusScope.of(context).unfocus();
-                      //         if (cData != null || cData!.isNotEmpty) {
-                      //           data = Fetch.weatherData(cityWeather: "$cData");
-                      //           setState(() {});
-                      //         }
-                      //       }
-
-                      //     },
-                      //     icon:
-
-                      //         Icon(Icons.search),
-                      //   ),
-
-                      // ),
                       SizedBox(
                         height: 10,
                         width: 10,
                       ),
-                      // TextFormField(
-                      //   cursorColor: Colors.black,
-                      //   decoration: new InputDecoration(
-                      //       border: InputBorder.none,
-                      //       focusedBorder: InputBorder.none,
-                      //       enabledBorder: InputBorder.none,
-                      //       errorBorder: InputBorder.none,
-                      //       disabledBorder: InputBorder.none,
-                      //       contentPadding: EdgeInsets.only(
-                      //           left: 15, bottom: 11, top: 11, right: 15),
-                      //       hintText: "Hint here"),
-                      // ),
-
                       Container(
                         padding: EdgeInsets.all(30),
                         child: Center(
@@ -130,7 +65,6 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-
                       SizedBox(
                         height: 10,
                       ),
@@ -144,7 +78,6 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(
                         height: 20,
                       ),
-
                       Container(
                         height: 200,
                         width: 230,
@@ -160,7 +93,7 @@ class _HomePageState extends State<HomePage> {
                         height: 20,
                       ),
                       Text(
-                        '${snapshot.data?.current?.tempC} \u2103',
+                        '${snapshot.data?.current?.tempC}° C',
                         style: TextStyle(
                             fontSize: 50, fontWeight: FontWeight.w600),
                       ),
@@ -176,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Padding(
                         padding: const EdgeInsets.only(
-                            top: 100, left: 40, right: 40),
+                            top: 100, left: 60, right: 60),
                         child: Divider(
                           height: 10,
                           thickness: 2,
@@ -188,6 +121,9 @@ class _HomePageState extends State<HomePage> {
                           child: Form(
                             key: _formvalid,
                             child: TextFormField(
+                              onTap: () {
+                                FocusScope.of(context).unfocus();
+                              },
                               controller: searchWeather,
                               textInputAction: TextInputAction.search,
                               onChanged: (value) {
